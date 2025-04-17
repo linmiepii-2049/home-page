@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>網站開發 on 我的新網站</title>
+    <link>http://localhost:1313/categories/%E7%B6%B2%E7%AB%99%E9%96%8B%E7%99%BC/</link>
+    <description>Recent content in 網站開發 on 我的新網站</description>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 20 Oct 2023 08:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E7%B6%B2%E7%AB%99%E9%96%8B%E7%99%BC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的第一篇文章</title>
+      <link>http://localhost:1313/posts/my-first-post/</link>
+      <pubDate>Fri, 20 Oct 2023 08:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <description>&lt;h2 id=&#34;歡迎來到我的網站&#34;&gt;歡迎來到我的網站&lt;/h2&gt;
+&lt;p&gt;這是使用Hugo建立的第一篇文章。Hugo是一個強大的靜態網站生成器，能夠快速創建高效的網站。&lt;/p&gt;
+&lt;h3 id=&#34;主要特點&#34;&gt;主要特點&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;超快的建立速度&lt;/li&gt;
+&lt;li&gt;強大的模板功能&lt;/li&gt;
+&lt;li&gt;豐富的主題選擇&lt;/li&gt;
+&lt;li&gt;完整的內容管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;希望您喜歡這個網站！&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>我的第一篇文章</title>
+      <link>http://localhost:1313/posts/my-first-post%E6%8B%B7%E8%B2%9D/</link>
+      <pubDate>Fri, 20 Oct 2023 08:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/my-first-post%E6%8B%B7%E8%B2%9D/</guid>
+      <description>&lt;h2 id=&#34;歡迎來到我的網站&#34;&gt;歡迎來到我的網站&lt;/h2&gt;
+&lt;p&gt;這是使用Hugo建立的第一篇文章。Hugo是一個強大的靜態網站生成器，能夠快速創建高效的網站。&lt;/p&gt;
+&lt;h3 id=&#34;主要特點&#34;&gt;主要特點&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;超快的建立速度&lt;/li&gt;
+&lt;li&gt;強大的模板功能&lt;/li&gt;
+&lt;li&gt;豐富的主題選擇&lt;/li&gt;
+&lt;li&gt;完整的內容管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;希望您喜歡這個網站！&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

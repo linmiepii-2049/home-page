@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>我的新網站</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on 我的新網站</description>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 20 Oct 2023 08:30:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>關於我</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Fri, 20 Oct 2023 08:30:00 +0800</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h2 id=&#34;個人簡介&#34;&gt;個人簡介&lt;/h2&gt;
+&lt;p&gt;大家好，我是這個網站的創建者。我對網站開發和設計有濃厚的興趣，特別是靜態網站生成技術。&lt;/p&gt;
+&lt;h2 id=&#34;專業技能&#34;&gt;專業技能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;前端開發 (HTML, CSS, JavaScript)&lt;/li&gt;
+&lt;li&gt;靜態網站生成 (Hugo, Jekyll)&lt;/li&gt;
+&lt;li&gt;UI/UX 設計&lt;/li&gt;
+&lt;li&gt;內容創作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;聯絡方式&#34;&gt;聯絡方式&lt;/h2&gt;
+&lt;p&gt;如果您有任何問題或合作機會，歡迎通過以下方式聯絡我：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;電子郵件: &lt;a href=&#34;mailto:example@domain.com&#34;&gt;example@domain.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;LinkedIn: &lt;a href=&#34;https://linkedin.com/in/yourprofile&#34;&gt;我的LinkedIn&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;感謝您訪問我的網站！&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>我的第一篇文章</title>
+      <link>http://localhost:1313/posts/my-first-post/</link>
+      <pubDate>Fri, 20 Oct 2023 08:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <description>&lt;h2 id=&#34;歡迎來到我的網站&#34;&gt;歡迎來到我的網站&lt;/h2&gt;
+&lt;p&gt;這是使用Hugo建立的第一篇文章。Hugo是一個強大的靜態網站生成器，能夠快速創建高效的網站。&lt;/p&gt;
+&lt;h3 id=&#34;主要特點&#34;&gt;主要特點&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;超快的建立速度&lt;/li&gt;
+&lt;li&gt;強大的模板功能&lt;/li&gt;
+&lt;li&gt;豐富的主題選擇&lt;/li&gt;
+&lt;li&gt;完整的內容管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;希望您喜歡這個網站！&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>我的第一篇文章</title>
+      <link>http://localhost:1313/posts/my-first-post%E6%8B%B7%E8%B2%9D/</link>
+      <pubDate>Fri, 20 Oct 2023 08:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/my-first-post%E6%8B%B7%E8%B2%9D/</guid>
+      <description>&lt;h2 id=&#34;歡迎來到我的網站&#34;&gt;歡迎來到我的網站&lt;/h2&gt;
+&lt;p&gt;這是使用Hugo建立的第一篇文章。Hugo是一個強大的靜態網站生成器，能夠快速創建高效的網站。&lt;/p&gt;
+&lt;h3 id=&#34;主要特點&#34;&gt;主要特點&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;超快的建立速度&lt;/li&gt;
+&lt;li&gt;強大的模板功能&lt;/li&gt;
+&lt;li&gt;豐富的主題選擇&lt;/li&gt;
+&lt;li&gt;完整的內容管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;希望您喜歡這個網站！&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

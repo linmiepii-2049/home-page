@@ -1,0 +1,44 @@
+baseURL: https://example.org/
+languageCode: zh-tw
+title: 我的新網站
+theme: PaperMod
+
+params:
+  # 主題設置
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  
+  # 首頁設置
+  homeInfoParams:
+    Title: "歡迎訪問我的網站"
+    Content: "這是一個使用Hugo和PaperMod主題建立的網站，分享我的學習筆記和經驗。"
+  
+  # 社交鏈接
+  socialIcons:
+    - name: github
+      url: "https://github.com/"
+    - name: twitter
+      url: "https://twitter.com/"
+
+menu:
+  main:
+    - identifier: about
+      name: 關於我
+      url: /about/
+      weight: 5
+    - identifier: categories
+      name: 分類
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: 標籤
+      url: /tags/
+      weight: 20
+    - identifier: archives
+      name: 歸檔
+      url: /archives/
+      weight: 30
