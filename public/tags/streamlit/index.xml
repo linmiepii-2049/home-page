@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Streamlit on 我的新網站</title>
+    <link>http://localhost:1313/tags/streamlit/</link>
+    <description>Recent content in Streamlit on 我的新網站</description>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 18 Apr 2025 08:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/streamlit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Streamlit - 我不需要華麗的外表，只要求快速上線</title>
+      <link>http://localhost:1313/posts/streamlit---%E6%88%91%E4%B8%8D%E9%9C%80%E8%A6%81%E8%8F%AF%E9%BA%97%E7%9A%84%E5%A4%96%E8%A1%A8%E5%8F%AA%E8%A6%81%E6%B1%82%E5%BF%AB%E9%80%9F%E4%B8%8A%E7%B7%9A/</link>
+      <pubDate>Fri, 18 Apr 2025 08:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/streamlit---%E6%88%91%E4%B8%8D%E9%9C%80%E8%A6%81%E8%8F%AF%E9%BA%97%E7%9A%84%E5%A4%96%E8%A1%A8%E5%8F%AA%E8%A6%81%E6%B1%82%E5%BF%AB%E9%80%9F%E4%B8%8A%E7%B7%9A/</guid>
+      <description>&lt;p&gt;使用 &lt;strong&gt;Streamlit&lt;/strong&gt; 和用傳統方式「直接開發 Web 介面」（如 HTML + CSS + JavaScript + Flask / Django / React）有很大的差別，下面幫你整理成對照表與分析，讓你清楚知道何時該用哪個。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-streamlit-vs-傳統-web-開發比較表格&#34;&gt;🧱 Streamlit vs 傳統 Web 開發：比較表格&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;項目&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;Streamlit&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;傳統 Web 開發&lt;/strong&gt; (Flask / Django + HTML/JS/CSS/React 等)&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⚡ 上手速度&lt;/td&gt;
+          &lt;td&gt;極快，只需幾行 Python&lt;/td&gt;
+          &lt;td&gt;慢，需要前後端技術堆疊&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;👨‍💻 適合對象&lt;/td&gt;
+          &lt;td&gt;資料科學家、AI 工程師、快速原型開發者&lt;/td&gt;
+          &lt;td&gt;專業前後端工程師，或需要完整控制的團隊&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;🎨 UI 自訂程度&lt;/td&gt;
+          &lt;td&gt;限制較多、只能用 Streamlit 提供的元件&lt;/td&gt;
+          &lt;td&gt;完全自由，可客製化任何前端畫面&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;📊 資料處理能力&lt;/td&gt;
+          &lt;td&gt;與 Pandas、Numpy、ML 模型整合超方便&lt;/td&gt;
+          &lt;td&gt;前端需用 AJAX 等方式與後端通訊，整合資料較繁瑣&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;🧩 插件與生態系&lt;/td&gt;
+          &lt;td&gt;有限（但支援部分 Plotly、Matplotlib、Leaflet 等）&lt;/td&gt;
+          &lt;td&gt;無限擴展，React/Vue/Bootstrap/D3.js 你想得到的都有&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;☁️ 部署難易&lt;/td&gt;
+          &lt;td&gt;非常簡單（Streamlit Cloud 一鍵部署）&lt;/td&gt;
+          &lt;td&gt;需設定伺服器、Nginx、Gunicorn、Docker 等&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;🔒 權限/登入功能&lt;/td&gt;
+          &lt;td&gt;除非自己擴充，否則基本沒有&lt;/td&gt;
+          &lt;td&gt;可完整設計帳戶系統、權限控管、OAuth 登入等&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;💻 多使用者/互動性&lt;/td&gt;
+          &lt;td&gt;單一使用者互動設計（每次 run 都是獨立 session）&lt;/td&gt;
+          &lt;td&gt;可設計多人聊天室、即時遊戲等複雜互動邏輯&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;📦 成熟的商業系統支援&lt;/td&gt;
+          &lt;td&gt;不適合直接拿來做完整商業網站或商城&lt;/td&gt;
+          &lt;td&gt;完全適合，可建構 SAAS、電商平台、REST API 等全面架構&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;💡 建立原型速度&lt;/td&gt;
+          &lt;td&gt;5分鐘內能做出可互動的簡易分析 App&lt;/td&gt;
+          &lt;td&gt;至少 1~2 小時，需後端 + 前端畫面設計&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-適合使用-streamlit-的情境&#34;&gt;🎯 適合使用 Streamlit 的情境：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;你是資料科學家、AI 工程師，不想碰前端。&lt;/li&gt;
+&lt;li&gt;想快速分享資料分析成果、機器學習模型 Demo。&lt;/li&gt;
+&lt;li&gt;做內部使用的小工具、Dashboard、報表工具。&lt;/li&gt;
+&lt;li&gt;想讓老闆或客戶「直接看模型怎麼跑」，不用指令介面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-傳統-web-開發適合的情境&#34;&gt;🎯 傳統 Web 開發適合的情境：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;要建一個正式產品：電商網站、社群平台、學習平台、SaaS 工具。&lt;/li&gt;
+&lt;li&gt;需要登入系統、使用者管理、多角色權限。&lt;/li&gt;
+&lt;li&gt;前後端需求分明、需多工協作（設計師/前端/後端）。&lt;/li&gt;
+&lt;li&gt;要高度自訂外觀、互動邏輯，或支援多人即時互動。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-總結一句話&#34;&gt;🧠 總結一句話：&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你想&lt;strong&gt;快速展示 Python 的成果&lt;/strong&gt; → &lt;strong&gt;Streamlit 是神兵利器。&lt;/strong&gt;&lt;br&gt;
+如果你要做&lt;strong&gt;商業產品&lt;/strong&gt;或&lt;strong&gt;需要高度客製化&lt;/strong&gt; → 還是得走傳統 Web 開發。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -6,8 +6,318 @@
     <description>Recent content on 我的新網站</description>
     <generator>Hugo -- 0.146.5</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 20 Oct 2023 08:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 19 Apr 2025 07:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何找到HuggingFace下載的模型位置並刪除</title>
+      <link>http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0huggingface%E4%B8%8B%E8%BC%89%E7%9A%84%E6%A8%A1%E5%9E%8B%E4%BD%8D%E7%BD%AE%E4%B8%A6%E5%88%AA%E9%99%A4/</link>
+      <pubDate>Sat, 19 Apr 2025 07:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0huggingface%E4%B8%8B%E8%BC%89%E7%9A%84%E6%A8%A1%E5%9E%8B%E4%BD%8D%E7%BD%AE%E4%B8%A6%E5%88%AA%E9%99%A4/</guid>
+      <description>&lt;h2 id=&#34;-從huggingface下載下來的模型放在哪&#34;&gt;📦 從HuggingFace下載下來的模型放在哪？&lt;/h2&gt;
+&lt;p&gt;✅ 1. 如果你是用 Hugging Face 下載（像是 Bark 用 from transformers import &amp;hellip;）
+Hugging Face 模型會存在這個資料夾下：&lt;/p&gt;
+&lt;p&gt;🖥 預設路徑&lt;/p&gt;
+&lt;p&gt;系統    路徑
+Linux/macOS    ~/.cache/huggingface/hub
+Windows    C:\Users\你的名字.cache\huggingface\hub&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-查看資料夾大小指令&#34;&gt;📦 查看資料夾大小指令：&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;du -sh 資料夾路徑
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;-例子&#34;&gt;✅ 例子：&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;du -sh ~/Downloads
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這會顯示 &lt;code&gt;Downloads&lt;/code&gt; 資料夾的總大小（例如 &lt;code&gt;2.3G&lt;/code&gt;）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-說明&#34;&gt;📌 說明：&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;參數&lt;/th&gt;
+          &lt;th&gt;意義&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;-s&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;summary：只顯示總大小&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;-h&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;human-readable：用 KB/MB/GB 顯示&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-如果你想看資料夾裡每個子資料夾的大小&#34;&gt;🔍 如果你想看資料夾裡&lt;strong&gt;每個子資料夾的大小&lt;/strong&gt;：&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;du -h -d &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; 資料夾路徑
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;-例子-1&#34;&gt;✅ 例子：&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;du -h -d &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; ~/Downloads
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這會列出 &lt;code&gt;Downloads&lt;/code&gt; 裡每個子資料夾的大小，方便你找出佔空間的來源。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-補充用-sort-排序&#34;&gt;💡 補充（用 &lt;code&gt;sort&lt;/code&gt; 排序）：&lt;/h3&gt;
+&lt;p&gt;如果你想從大到小排列資料夾大小，可以這樣寫：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;du -h -d &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; ~/Downloads | sort -hr
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;-找到目前所在的資料夾位置&#34;&gt;🗑️ 找到目前所在的資料夾位置：&lt;/h2&gt;
+&lt;p&gt;你可以用以下指令查詢&lt;strong&gt;目前所在的資料夾位置&lt;/strong&gt; 👇&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>開源模型一定要下載至本地部署嗎？檔案很大耶</title>
+      <link>http://localhost:1313/posts/%E9%96%8B%E6%BA%90tts---coqui%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E5%84%AA%E5%8A%A3/</link>
+      <pubDate>Fri, 18 Apr 2025 20:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E9%96%8B%E6%BA%90tts---coqui%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E5%84%AA%E5%8A%A3/</guid>
+      <description>&lt;p&gt;先說結論：通常在本地調用開源模型時，&lt;strong&gt;你必須&lt;/strong&gt;把模型本體（也就是模型權重）**下載下來，才能在本地執行推理（inference）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-為什麼要下載模型&#34;&gt;📦 為什麼要下載模型？&lt;/h2&gt;
+&lt;p&gt;開源模型通常包含兩部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;模型架構（code）&lt;/strong&gt;：例如用 PyTorch、TensorFlow、Transformers 定義的模型類別&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型權重（weights）&lt;/strong&gt;：訓練後的 &lt;code&gt;.pt&lt;/code&gt;、&lt;code&gt;.bin&lt;/code&gt;、&lt;code&gt;.ckpt&lt;/code&gt;、&lt;code&gt;.safetensors&lt;/code&gt; 檔案，這才是「學會怎麼說話/辨識」的腦袋&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你沒有下載這些「大腦」檔案，模型就只是個空殼。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-模型在哪裡下載&#34;&gt;🧠 模型在哪裡下載？&lt;/h2&gt;
+&lt;p&gt;大多數開源模型會放在：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hugging Face&lt;/strong&gt;（最常見）👉 &lt;a href=&#34;https://huggingface.co/models&#34;&gt;https://huggingface.co/models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Repo&lt;/strong&gt;（像 Tortoise、Bark、Coqui）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Google Drive / Mega 等外部載點&lt;/strong&gt;（某些大模型）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;你執行模型時，&lt;strong&gt;第一次可能會自動下載&lt;/strong&gt;，例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; transformers &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; pipeline
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pipe &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pipeline(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text-to-speech&amp;#34;&lt;/span&gt;, model&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;coqui/XTTS-v2&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這會觸發 Hugging Face 把 &lt;code&gt;coqui/XTTS-v2&lt;/code&gt; 的檔案下載到你的本地快取（通常在 &lt;code&gt;~/.cache/huggingface/&lt;/code&gt;）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-本地部署要準備的東西&#34;&gt;✅ 本地部署要準備的東西：&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;必備&lt;/th&gt;
+          &lt;th&gt;說明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;模型程式碼&lt;/td&gt;
+          &lt;td&gt;repo 中的 Python 或框架定義&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;模型權重&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;.pt&lt;/code&gt; / &lt;code&gt;.ckpt&lt;/code&gt; / &lt;code&gt;.bin&lt;/code&gt; 等檔&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;執行環境&lt;/td&gt;
+          &lt;td&gt;PyTorch / CUDA / 處理音訊的工具等&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;音訊工具&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;torchaudio&lt;/code&gt;、&lt;code&gt;ffmpeg&lt;/code&gt;、&lt;code&gt;librosa&lt;/code&gt; 等&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;不想下載模型可以嗎&#34;&gt;❓不想下載模型可以嗎？&lt;/h2&gt;
+&lt;p&gt;可以，但有以下選項：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;方法&lt;/th&gt;
+          &lt;th&gt;原理&lt;/th&gt;
+          &lt;th&gt;限制&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;✅ &lt;strong&gt;使用 API（如 Hugging Face Spaces）&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;把輸入送給雲端，模型在他們伺服器跑&lt;/td&gt;
+          &lt;td&gt;有延遲、需網路、可能有使用限制&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;✅ &lt;strong&gt;用 Colab 雲端 notebook 跑模型&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;雲端 GPU 幫你載模型、執行&lt;/td&gt;
+          &lt;td&gt;免費空間有限，重開要重載模型&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;❌ &lt;strong&gt;完全不下載又本地執行&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;不可能&lt;/td&gt;
+          &lt;td&gt;除非你自己訓練，否則必須有模型&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;想想也是，除非商用產品才會將模型放在伺服器上供用戶使用，否則伺服器維護費用要從哪裡來？其實能夠開源讓大家使用已經很佛心了！&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Streamlit - 我不需要華麗的外表，只要求快速上線</title>
+      <link>http://localhost:1313/posts/streamlit---%E6%88%91%E4%B8%8D%E9%9C%80%E8%A6%81%E8%8F%AF%E9%BA%97%E7%9A%84%E5%A4%96%E8%A1%A8%E5%8F%AA%E8%A6%81%E6%B1%82%E5%BF%AB%E9%80%9F%E4%B8%8A%E7%B7%9A/</link>
+      <pubDate>Fri, 18 Apr 2025 08:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/streamlit---%E6%88%91%E4%B8%8D%E9%9C%80%E8%A6%81%E8%8F%AF%E9%BA%97%E7%9A%84%E5%A4%96%E8%A1%A8%E5%8F%AA%E8%A6%81%E6%B1%82%E5%BF%AB%E9%80%9F%E4%B8%8A%E7%B7%9A/</guid>
+      <description>&lt;p&gt;使用 &lt;strong&gt;Streamlit&lt;/strong&gt; 和用傳統方式「直接開發 Web 介面」（如 HTML + CSS + JavaScript + Flask / Django / React）有很大的差別，下面幫你整理成對照表與分析，讓你清楚知道何時該用哪個。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-streamlit-vs-傳統-web-開發比較表格&#34;&gt;🧱 Streamlit vs 傳統 Web 開發：比較表格&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;項目&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;Streamlit&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;傳統 Web 開發&lt;/strong&gt; (Flask / Django + HTML/JS/CSS/React 等)&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⚡ 上手速度&lt;/td&gt;
+          &lt;td&gt;極快，只需幾行 Python&lt;/td&gt;
+          &lt;td&gt;慢，需要前後端技術堆疊&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;👨‍💻 適合對象&lt;/td&gt;
+          &lt;td&gt;資料科學家、AI 工程師、快速原型開發者&lt;/td&gt;
+          &lt;td&gt;專業前後端工程師，或需要完整控制的團隊&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;🎨 UI 自訂程度&lt;/td&gt;
+          &lt;td&gt;限制較多、只能用 Streamlit 提供的元件&lt;/td&gt;
+          &lt;td&gt;完全自由，可客製化任何前端畫面&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;📊 資料處理能力&lt;/td&gt;
+          &lt;td&gt;與 Pandas、Numpy、ML 模型整合超方便&lt;/td&gt;
+          &lt;td&gt;前端需用 AJAX 等方式與後端通訊，整合資料較繁瑣&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;🧩 插件與生態系&lt;/td&gt;
+          &lt;td&gt;有限（但支援部分 Plotly、Matplotlib、Leaflet 等）&lt;/td&gt;
+          &lt;td&gt;無限擴展，React/Vue/Bootstrap/D3.js 你想得到的都有&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;☁️ 部署難易&lt;/td&gt;
+          &lt;td&gt;非常簡單（Streamlit Cloud 一鍵部署）&lt;/td&gt;
+          &lt;td&gt;需設定伺服器、Nginx、Gunicorn、Docker 等&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;🔒 權限/登入功能&lt;/td&gt;
+          &lt;td&gt;除非自己擴充，否則基本沒有&lt;/td&gt;
+          &lt;td&gt;可完整設計帳戶系統、權限控管、OAuth 登入等&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;💻 多使用者/互動性&lt;/td&gt;
+          &lt;td&gt;單一使用者互動設計（每次 run 都是獨立 session）&lt;/td&gt;
+          &lt;td&gt;可設計多人聊天室、即時遊戲等複雜互動邏輯&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;📦 成熟的商業系統支援&lt;/td&gt;
+          &lt;td&gt;不適合直接拿來做完整商業網站或商城&lt;/td&gt;
+          &lt;td&gt;完全適合，可建構 SAAS、電商平台、REST API 等全面架構&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;💡 建立原型速度&lt;/td&gt;
+          &lt;td&gt;5分鐘內能做出可互動的簡易分析 App&lt;/td&gt;
+          &lt;td&gt;至少 1~2 小時，需後端 + 前端畫面設計&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-適合使用-streamlit-的情境&#34;&gt;🎯 適合使用 Streamlit 的情境：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;你是資料科學家、AI 工程師，不想碰前端。&lt;/li&gt;
+&lt;li&gt;想快速分享資料分析成果、機器學習模型 Demo。&lt;/li&gt;
+&lt;li&gt;做內部使用的小工具、Dashboard、報表工具。&lt;/li&gt;
+&lt;li&gt;想讓老闆或客戶「直接看模型怎麼跑」，不用指令介面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-傳統-web-開發適合的情境&#34;&gt;🎯 傳統 Web 開發適合的情境：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;要建一個正式產品：電商網站、社群平台、學習平台、SaaS 工具。&lt;/li&gt;
+&lt;li&gt;需要登入系統、使用者管理、多角色權限。&lt;/li&gt;
+&lt;li&gt;前後端需求分明、需多工協作（設計師/前端/後端）。&lt;/li&gt;
+&lt;li&gt;要高度自訂外觀、互動邏輯，或支援多人即時互動。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-總結一句話&#34;&gt;🧠 總結一句話：&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你想&lt;strong&gt;快速展示 Python 的成果&lt;/strong&gt; → &lt;strong&gt;Streamlit 是神兵利器。&lt;/strong&gt;&lt;br&gt;
+如果你要做&lt;strong&gt;商業產品&lt;/strong&gt;或&lt;strong&gt;需要高度客製化&lt;/strong&gt; → 還是得走傳統 Web 開發。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>明明已經安裝python，therminal還是找不到指令</title>
+      <link>http://localhost:1313/posts/%E6%98%8E%E6%98%8E%E5%B7%B2%E7%B6%93%E5%AE%89%E8%A3%9Dpythontherminal%E9%82%84%E6%98%AF%E6%89%BE%E4%B8%8D%E5%88%B0%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Thu, 17 Apr 2025 20:45:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E6%98%8E%E6%98%8E%E5%B7%B2%E7%B6%93%E5%AE%89%E8%A3%9Dpythontherminal%E9%82%84%E6%98%AF%E6%89%BE%E4%B8%8D%E5%88%B0%E6%8C%87%E4%BB%A4/</guid>
+      <description>&lt;p&gt;先說結論：即使已經安裝了 Python，&lt;strong&gt;若 &lt;code&gt;.zshrc&lt;/code&gt; 沒有正確把 Python 的安裝路徑加入 &lt;code&gt;PATH&lt;/code&gt; 環境變數中&lt;/strong&gt;，Terminal 是找不到 &lt;code&gt;python&lt;/code&gt; 或 &lt;code&gt;python3&lt;/code&gt; 指令的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-為什麼會這樣&#34;&gt;🔍 為什麼會這樣？&lt;/h2&gt;
+&lt;p&gt;終端機打開時會去找可執行的 &lt;code&gt;python&lt;/code&gt; 指令，而它會根據環境變數 &lt;code&gt;PATH&lt;/code&gt; 一個一個資料夾去找。&lt;/p&gt;
+&lt;p&gt;如果 Python 安裝的位置不在這些資料夾中，就會出現：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;zsh: command not found: python
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id=&#34;-解決辦法加入-python-路徑到-zshrc&#34;&gt;🧭 解決辦法：加入 Python 路徑到 &lt;code&gt;.zshrc&lt;/code&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;-步驟-1找到-python-安裝位置&#34;&gt;✅ 步驟 1：找到 Python 安裝位置&lt;/h3&gt;
+&lt;p&gt;你可以試試這個指令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;which python3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;範例結果：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;/opt/homebrew/bin/python3
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h3 id=&#34;-步驟-2把這個路徑加入-zshrc&#34;&gt;✅ 步驟 2：把這個路徑加入 &lt;code&gt;.zshrc&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;用你喜歡的編輯器（或內建的 nano）編輯 &lt;code&gt;.zshrc&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nano ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;加上這行（根據你 &lt;code&gt;which&lt;/code&gt; 出來的結果）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/homebrew/bin:&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你用的是 Pyenv、Anaconda、Homebrew、或其他安裝方式，它們可能會有不同路徑，以下是常見範例：&lt;/p&gt;
+&lt;h4 id=&#34;-homebrew-安裝的-pythonmacos&#34;&gt;📦 Homebrew 安裝的 Python（macOS）&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/homebrew/bin:&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;-pyenv-安裝的-python&#34;&gt;🐍 Pyenv 安裝的 Python&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$HOME&lt;span style=&#34;color:#e6db74&#34;&gt;/.pyenv/shims:&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;-anaconda&#34;&gt;🧪 Anaconda&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$HOME&lt;span style=&#34;color:#e6db74&#34;&gt;/anaconda3/bin:&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h3 id=&#34;-步驟-3讓-zshrc-設定生效&#34;&gt;✅ 步驟 3：讓 &lt;code&gt;.zshrc&lt;/code&gt; 設定生效&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;source ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;-檢查是否成功&#34;&gt;✅ 檢查是否成功&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>本地code上傳至github指令</title>
+      <link>http://localhost:1313/posts/local-code-upload-to-github/</link>
+      <pubDate>Thu, 17 Apr 2025 08:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/local-code-upload-to-github/</guid>
+      <description>&lt;p&gt;將本地專案上傳到 GitHub 的完整指令流程，並附上每步的說明：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-前提條件&#34;&gt;🛠️ 前提條件&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;你已經安裝好 &lt;a href=&#34;https://git-scm.com/&#34;&gt;Git&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;你已經有一個 GitHub 帳號。&lt;/li&gt;
+&lt;li&gt;你已經在 GitHub 上建立了一個 repository（儲存庫）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-假設你的資料夾結構如下&#34;&gt;📁 假設你的資料夾結構如下&lt;/h3&gt;
+&lt;p&gt;你的專案資料夾名稱為 &lt;code&gt;my-project&lt;/code&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-上傳指令與解釋&#34;&gt;🧾 上傳指令與解釋&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd my-project
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;➡️ 進入你的專案資料夾。&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;➡️ 初始化一個 git 倉庫，讓這個資料夾變成可以被 Git 管理。&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;➡️ 將所有檔案加入 Git 暫存區，準備提交。&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Initial commit&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;➡️ 提交這次變更，訊息為 “Initial commit”。&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git branch -M main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;➡️ 將分支名稱改為 &lt;code&gt;main&lt;/code&gt;（新版 GitHub 預設使用 &lt;code&gt;main&lt;/code&gt; 作為主要分支）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git remote add origin https://github.com/你的帳號名稱/你的repo名稱.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;➡️ 將遠端 GitHub 儲存庫與你的本地專案連接。這行需要換成你的實際 GitHub 連結。&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git remote add origin https://github.com/johnsmith/my-project.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push -u origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;➡️ 將 &lt;code&gt;main&lt;/code&gt; 分支推送到 GitHub，並設定 &lt;code&gt;origin&lt;/code&gt; 作為預設遠端分支。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>關於我</title>
       <link>http://localhost:1313/about/</link>
@@ -35,22 +345,6 @@
       <link>http://localhost:1313/posts/my-first-post/</link>
       <pubDate>Fri, 20 Oct 2023 08:00:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>&lt;h2 id=&#34;歡迎來到我的網站&#34;&gt;歡迎來到我的網站&lt;/h2&gt;
-&lt;p&gt;這是使用Hugo建立的第一篇文章。Hugo是一個強大的靜態網站生成器，能夠快速創建高效的網站。&lt;/p&gt;
-&lt;h3 id=&#34;主要特點&#34;&gt;主要特點&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;超快的建立速度&lt;/li&gt;
-&lt;li&gt;強大的模板功能&lt;/li&gt;
-&lt;li&gt;豐富的主題選擇&lt;/li&gt;
-&lt;li&gt;完整的內容管理&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;希望您喜歡這個網站！&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>我的第一篇文章</title>
-      <link>http://localhost:1313/posts/my-first-post%E6%8B%B7%E8%B2%9D/</link>
-      <pubDate>Fri, 20 Oct 2023 08:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post%E6%8B%B7%E8%B2%9D/</guid>
       <description>&lt;h2 id=&#34;歡迎來到我的網站&#34;&gt;歡迎來到我的網站&lt;/h2&gt;
 &lt;p&gt;這是使用Hugo建立的第一篇文章。Hugo是一個強大的靜態網站生成器，能夠快速創建高效的網站。&lt;/p&gt;
 &lt;h3 id=&#34;主要特點&#34;&gt;主要特點&lt;/h3&gt;

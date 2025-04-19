@@ -6,29 +6,52 @@
     <description>Recent content in Hugo on 我的新網站</description>
     <generator>Hugo -- 0.146.5</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 20 Oct 2023 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 17 Apr 2025 20:45:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>明明已經安裝python，therminal還是找不到指令</title>
+      <link>http://localhost:1313/posts/%E6%98%8E%E6%98%8E%E5%B7%B2%E7%B6%93%E5%AE%89%E8%A3%9Dpythontherminal%E9%82%84%E6%98%AF%E6%89%BE%E4%B8%8D%E5%88%B0%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Thu, 17 Apr 2025 20:45:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E6%98%8E%E6%98%8E%E5%B7%B2%E7%B6%93%E5%AE%89%E8%A3%9Dpythontherminal%E9%82%84%E6%98%AF%E6%89%BE%E4%B8%8D%E5%88%B0%E6%8C%87%E4%BB%A4/</guid>
+      <description>&lt;p&gt;先說結論：即使已經安裝了 Python，&lt;strong&gt;若 &lt;code&gt;.zshrc&lt;/code&gt; 沒有正確把 Python 的安裝路徑加入 &lt;code&gt;PATH&lt;/code&gt; 環境變數中&lt;/strong&gt;，Terminal 是找不到 &lt;code&gt;python&lt;/code&gt; 或 &lt;code&gt;python3&lt;/code&gt; 指令的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-為什麼會這樣&#34;&gt;🔍 為什麼會這樣？&lt;/h2&gt;
+&lt;p&gt;終端機打開時會去找可執行的 &lt;code&gt;python&lt;/code&gt; 指令，而它會根據環境變數 &lt;code&gt;PATH&lt;/code&gt; 一個一個資料夾去找。&lt;/p&gt;
+&lt;p&gt;如果 Python 安裝的位置不在這些資料夾中，就會出現：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;zsh: command not found: python
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id=&#34;-解決辦法加入-python-路徑到-zshrc&#34;&gt;🧭 解決辦法：加入 Python 路徑到 &lt;code&gt;.zshrc&lt;/code&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;-步驟-1找到-python-安裝位置&#34;&gt;✅ 步驟 1：找到 Python 安裝位置&lt;/h3&gt;
+&lt;p&gt;你可以試試這個指令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;which python3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;範例結果：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;/opt/homebrew/bin/python3
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h3 id=&#34;-步驟-2把這個路徑加入-zshrc&#34;&gt;✅ 步驟 2：把這個路徑加入 &lt;code&gt;.zshrc&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;用你喜歡的編輯器（或內建的 nano）編輯 &lt;code&gt;.zshrc&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nano ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;加上這行（根據你 &lt;code&gt;which&lt;/code&gt; 出來的結果）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/homebrew/bin:&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你用的是 Pyenv、Anaconda、Homebrew、或其他安裝方式，它們可能會有不同路徑，以下是常見範例：&lt;/p&gt;
+&lt;h4 id=&#34;-homebrew-安裝的-pythonmacos&#34;&gt;📦 Homebrew 安裝的 Python（macOS）&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/homebrew/bin:&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;-pyenv-安裝的-python&#34;&gt;🐍 Pyenv 安裝的 Python&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$HOME&lt;span style=&#34;color:#e6db74&#34;&gt;/.pyenv/shims:&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;-anaconda&#34;&gt;🧪 Anaconda&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$HOME&lt;span style=&#34;color:#e6db74&#34;&gt;/anaconda3/bin:&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h3 id=&#34;-步驟-3讓-zshrc-設定生效&#34;&gt;✅ 步驟 3：讓 &lt;code&gt;.zshrc&lt;/code&gt; 設定生效&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;source ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;-檢查是否成功&#34;&gt;✅ 檢查是否成功&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;</description>
+    </item>
     <item>
       <title>我的第一篇文章</title>
       <link>http://localhost:1313/posts/my-first-post/</link>
       <pubDate>Fri, 20 Oct 2023 08:00:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>&lt;h2 id=&#34;歡迎來到我的網站&#34;&gt;歡迎來到我的網站&lt;/h2&gt;
-&lt;p&gt;這是使用Hugo建立的第一篇文章。Hugo是一個強大的靜態網站生成器，能夠快速創建高效的網站。&lt;/p&gt;
-&lt;h3 id=&#34;主要特點&#34;&gt;主要特點&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;超快的建立速度&lt;/li&gt;
-&lt;li&gt;強大的模板功能&lt;/li&gt;
-&lt;li&gt;豐富的主題選擇&lt;/li&gt;
-&lt;li&gt;完整的內容管理&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;希望您喜歡這個網站！&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>我的第一篇文章</title>
-      <link>http://localhost:1313/posts/my-first-post%E6%8B%B7%E8%B2%9D/</link>
-      <pubDate>Fri, 20 Oct 2023 08:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post%E6%8B%B7%E8%B2%9D/</guid>
       <description>&lt;h2 id=&#34;歡迎來到我的網站&#34;&gt;歡迎來到我的網站&lt;/h2&gt;
 &lt;p&gt;這是使用Hugo建立的第一篇文章。Hugo是一個強大的靜態網站生成器，能夠快速創建高效的網站。&lt;/p&gt;
 &lt;h3 id=&#34;主要特點&#34;&gt;主要特點&lt;/h3&gt;

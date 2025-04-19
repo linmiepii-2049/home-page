@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AI on 我的新網站</title>
+    <link>http://localhost:1313/tags/ai/</link>
+    <description>Recent content in AI on 我的新網站</description>
+    <generator>Hugo -- 0.146.5</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 18 Apr 2025 20:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>開源模型一定要下載至本地部署嗎？檔案很大耶</title>
+      <link>http://localhost:1313/posts/%E9%96%8B%E6%BA%90tts---coqui%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E5%84%AA%E5%8A%A3/</link>
+      <pubDate>Fri, 18 Apr 2025 20:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E9%96%8B%E6%BA%90tts---coqui%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9E%8B%E4%BB%A5%E5%8F%8A%E5%84%AA%E5%8A%A3/</guid>
+      <description>&lt;p&gt;先說結論：通常在本地調用開源模型時，&lt;strong&gt;你必須&lt;/strong&gt;把模型本體（也就是模型權重）**下載下來，才能在本地執行推理（inference）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-為什麼要下載模型&#34;&gt;📦 為什麼要下載模型？&lt;/h2&gt;
+&lt;p&gt;開源模型通常包含兩部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;模型架構（code）&lt;/strong&gt;：例如用 PyTorch、TensorFlow、Transformers 定義的模型類別&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型權重（weights）&lt;/strong&gt;：訓練後的 &lt;code&gt;.pt&lt;/code&gt;、&lt;code&gt;.bin&lt;/code&gt;、&lt;code&gt;.ckpt&lt;/code&gt;、&lt;code&gt;.safetensors&lt;/code&gt; 檔案，這才是「學會怎麼說話/辨識」的腦袋&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你沒有下載這些「大腦」檔案，模型就只是個空殼。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-模型在哪裡下載&#34;&gt;🧠 模型在哪裡下載？&lt;/h2&gt;
+&lt;p&gt;大多數開源模型會放在：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hugging Face&lt;/strong&gt;（最常見）👉 &lt;a href=&#34;https://huggingface.co/models&#34;&gt;https://huggingface.co/models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Repo&lt;/strong&gt;（像 Tortoise、Bark、Coqui）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Google Drive / Mega 等外部載點&lt;/strong&gt;（某些大模型）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;你執行模型時，&lt;strong&gt;第一次可能會自動下載&lt;/strong&gt;，例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; transformers &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; pipeline
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pipe &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pipeline(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text-to-speech&amp;#34;&lt;/span&gt;, model&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;coqui/XTTS-v2&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這會觸發 Hugging Face 把 &lt;code&gt;coqui/XTTS-v2&lt;/code&gt; 的檔案下載到你的本地快取（通常在 &lt;code&gt;~/.cache/huggingface/&lt;/code&gt;）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-本地部署要準備的東西&#34;&gt;✅ 本地部署要準備的東西：&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;必備&lt;/th&gt;
+          &lt;th&gt;說明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;模型程式碼&lt;/td&gt;
+          &lt;td&gt;repo 中的 Python 或框架定義&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;模型權重&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;.pt&lt;/code&gt; / &lt;code&gt;.ckpt&lt;/code&gt; / &lt;code&gt;.bin&lt;/code&gt; 等檔&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;執行環境&lt;/td&gt;
+          &lt;td&gt;PyTorch / CUDA / 處理音訊的工具等&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;音訊工具&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;torchaudio&lt;/code&gt;、&lt;code&gt;ffmpeg&lt;/code&gt;、&lt;code&gt;librosa&lt;/code&gt; 等&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;不想下載模型可以嗎&#34;&gt;❓不想下載模型可以嗎？&lt;/h2&gt;
+&lt;p&gt;可以，但有以下選項：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;方法&lt;/th&gt;
+          &lt;th&gt;原理&lt;/th&gt;
+          &lt;th&gt;限制&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;✅ &lt;strong&gt;使用 API（如 Hugging Face Spaces）&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;把輸入送給雲端，模型在他們伺服器跑&lt;/td&gt;
+          &lt;td&gt;有延遲、需網路、可能有使用限制&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;✅ &lt;strong&gt;用 Colab 雲端 notebook 跑模型&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;雲端 GPU 幫你載模型、執行&lt;/td&gt;
+          &lt;td&gt;免費空間有限，重開要重載模型&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;❌ &lt;strong&gt;完全不下載又本地執行&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;不可能&lt;/td&gt;
+          &lt;td&gt;除非你自己訓練，否則必須有模型&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;想想也是，除非商用產品才會將模型放在伺服器上供用戶使用，否則伺服器維護費用要從哪裡來？其實能夠開源讓大家使用已經很佛心了！&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
